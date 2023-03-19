@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(UsersExtension.class)
-public class LoginTest extends BaseTest {
+public class UsersQueueLoginTest extends BaseTest {
     private void loginWithUser(User user) {
         welcomePage.openPage()
                 .shouldBeLoaded()
