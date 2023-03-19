@@ -3,7 +3,9 @@ package niffler.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import niffler.allure.HelperAllure;
 import niffler.config.NifflerUiProperties;
+import niffler.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,11 +58,12 @@ public class LoginPage implements BasePage<LoginPage> {
         return this;
     }
 
-    @Step("Login with user [{0}] and password [{1}]")
-    public void loginWith(String name, String password) {
-        LOGGER.info("[Step] Enter username [{}] and password [{}]", name, password);
-        enterUsername(name);
-        enterPassword(password);
+    @Step()
+    public void loginWith(User user) {
+        HelperAllure.setStepCaseName("Login with user [%s] and password [%s]".formatted(user.name(), user.password()));
+        LOGGER.info("[Step] Enter username [{}] and password [{}]", user.name(), user.password());
+        enterUsername(user.name());
+        enterPassword(user.password());
         clickSingIn();
     }
 }

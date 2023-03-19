@@ -1,4 +1,4 @@
-package niffler.jupiter;
+package niffler.jupiter.spend;
 
 import niffler.model.CategoryValues;
 import niffler.model.CurrencyValues;
@@ -9,7 +9,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@ExtendWith(SpendsCreateExtension.class)
+@ExtendWith(SpendsExtension.class)
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Spend {

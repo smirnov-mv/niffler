@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
-import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -55,7 +54,7 @@ public class SpendsTableComponent {
     @Step("Check spend data in table row")
     public void checkSpendDataRow(SpendJson spend) {
         var currentRow = rowBySpendId(spend.id());
-        HelperAllure.attachScreenshotFullPage("Table screen");
+        HelperAllure.attachElementScreenshot(table, "Table screen");
         assertAll("Check spend data in row",
                 () -> checkValue(currentRow, 1, "Date", spend.spendDateAsString()),
                 () -> checkValue(currentRow, 2, "Amount", DoubleToStringConverter.convert(spend.amount())),
