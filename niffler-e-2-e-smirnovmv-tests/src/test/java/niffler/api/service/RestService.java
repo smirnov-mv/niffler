@@ -2,11 +2,13 @@ package niffler.api.service;
 
 import niffler.allure.AllureOkHttp3Custom;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public abstract class RestService {
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
+            //.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .addInterceptor(new AllureOkHttp3Custom())
             .build();
 

@@ -5,12 +5,14 @@ import io.qameta.allure.Step;
 import niffler.api.service.RestService;
 import niffler.config.NifflerApiProperties;
 import niffler.model.SpendJson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.List;
 
 public class NifflerSpendClient extends RestService {
-
+    private final Logger LOGGER = LoggerFactory.getLogger(NifflerSpendClient.class);
     private final NifflerSpendApi nifflerSpendApi = retrofit.create(NifflerSpendApi.class);
 
     public NifflerSpendClient() {
@@ -19,6 +21,7 @@ public class NifflerSpendClient extends RestService {
 
     @Step("Create spends")
     public SpendJson createSpend(SpendJson spendJson) {
+        LOGGER.info("Create spend [{}]", spendJson);
         SpendJson spendResponse = null;
         try {
             spendResponse = nifflerSpendApi

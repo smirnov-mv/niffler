@@ -3,7 +3,7 @@ package niffler.utils;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import niffler.config.NifflerUiProperties;
-import niffler.data.User;
+import niffler.model.User;
 
 import static com.codeborne.selenide.Selenide.open;
 
